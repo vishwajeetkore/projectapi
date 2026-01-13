@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM eclipse-temurin:17-jdk
 
 MAINTAINER <Ashok Bollepalli>
 
@@ -9,3 +9,4 @@ WORKDIR /usr/app/
 ENTRYPOINT ["java", "-jar", "products_api.jar"]
 
 EXPOSE 8080
+
