@@ -1,6 +1,6 @@
 FROM eclipse-temurin:17-jdk
 
-MAINTAINER <Ashok Bollepalli>
+MAINTAINER vishwajeet kore
 
 COPY target/products_api.jar  /usr/app/
 
