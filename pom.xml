@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>in.ashokit.ecomm</groupId>
-	<artifactId>01_Products_API</artifactId>
+	<artifactId>projectapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ecommerce_backend</name>
 	<description>Demo project for Spring Boot</description>
