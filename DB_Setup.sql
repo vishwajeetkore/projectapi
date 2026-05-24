@@ -1,15 +1,15 @@
 -- -----------------------------------------------------
 -- Schema fullstack
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `vishwajeet_ecomm`;
+DROP SCHEMA IF EXISTS `mysql`;
 
-CREATE SCHEMA `vishwajeet_ecomm`;
-USE `vishwajeet_ecomm` ;
+CREATE SCHEMA `mysql`;
+USE `mysql` ;
 
 -- -----------------------------------------------------
 -- Table `fullstack`.`product_category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vishwajeet_ecomm`.`product_category` (
+CREATE TABLE IF NOT EXISTS `mysql`.`product_category` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `category_name` VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
@@ -19,7 +19,7 @@ AUTO_INCREMENT = 1;
 -- -----------------------------------------------------
 -- Table `fullstack`.`product`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `vishwajeet_ecomm`.`product` (
+CREATE TABLE IF NOT EXISTS `mysql`.`product` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(255) DEFAULT NULL,
   `name` VARCHAR(255) DEFAULT NULL,
