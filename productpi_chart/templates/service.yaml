@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "productpi_chart.fullname" . }}
-  labels:
-    {{- include "productpi_chart.labels" . | nindent 4 }}
+  name: {{ .Values.service.name }}
 spec:
   type: {{ .Values.service.type }}
+  selector:
+    app: {{ .Values.labels.app }}
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
-  selector:
-    {{- include "productpi_chart.selectorLabels" . | nindent 4 }}
+      targetPort: {{ .Values.service.targetPort }}
+      
