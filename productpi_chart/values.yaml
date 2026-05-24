@@ -1,16 +1,16 @@
-replicaCount: 4
+replicaCount: 2
 
 image:
-  repository: 531262218012.dkr.ecr.us-east-1.amazonaws.com/mavenwebapp
+  repository: 907260787494.dkr.ecr.us-east-1.amazonaws.com/backend_product:latest
   tag: latest
   pullPolicy: Always
 
 container:
-  name: mavencontainer
+  name: productscontainer
   port: 8080
 
 service:
-  name: mavenwebapp-service
+  name: productssvc
   type: ClusterIP
   port: 80
   targetPort: 8080
@@ -24,7 +24,7 @@ resources:
     memory: "512Mi"
 
 labels:
-  app: mavenwebapp
+  app: products
 
 # ✅ ADD THIS BLOCK
 ingress:
@@ -39,5 +39,5 @@ ingress:
 hpa:
  enabled: true
  minReplicas: 2
- maxReplicas: 12
+ maxReplicas: 5
  cpuUtilization: 50
