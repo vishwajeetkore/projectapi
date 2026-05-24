@@ -6,7 +6,7 @@ image:
   pullPolicy: Always
 
 container:
-  name: productscontainer
+  name: products
   port: 8080
 
 service:
