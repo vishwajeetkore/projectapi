@@ -9,7 +9,7 @@ pipeline {
         ECR = "907260787494.dkr.ecr.us-east-1.amazonaws.com"
         ECR_REPO = "907260787494.dkr.ecr.us-east-1.amazonaws.com/backend_product"
         IMAGE_TAG = "latest"
-        HELM_CHART = "productpi_chart"
+        HELM_CHART = "productapi-chart"
     }
     
     stages{
@@ -53,12 +53,14 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                sh '''
-                cd $HELM_CHART
-                helm upgrade --install $HELM_CHART .
-                '''
-            }
-        }
+    steps {
+        sh '''
+        helm uninstall $HELM_CHART || true
+
+        cd $HELM_CHART
+        helm upgrade --install $HELM_CHART . --force
+        '''
+    }
+}
     }
 }
