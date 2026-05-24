@@ -4,41 +4,48 @@ metadata:
   name: {{ .Values.labels.app }}-deployment
   labels:
     app: {{ .Values.labels.app }}
+
 spec:
   replicas: {{ .Values.replicaCount }}
+
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 0
+
   selector:
     matchLabels:
       app: {{ .Values.labels.app }}
+
   template:
     metadata:
       labels:
         app: {{ .Values.labels.app }}
+
     spec:
-      imagePullSecrets:
-        - name: ecr-secret
       containers:
         - name: {{ .Values.container.name }}-container
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
           ports:
             - containerPort: {{ .Values.container.port }}
+
           livenessProbe:
             httpGet:
-              path: /health
+              path: /actuator/health
               port: {{ .Values.container.port }}
-            initialDelaySeconds: 30
+            initialDelaySeconds: 60
             periodSeconds: 10
+
           readinessProbe:
             httpGet:
-              path: /health
+              path: /actuator/health
               port: {{ .Values.container.port }}
-            initialDelaySeconds: 10
+            initialDelaySeconds: 30
             periodSeconds: 5
+
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
