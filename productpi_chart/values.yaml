@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: 907260787494.dkr.ecr.us-east-1.amazonaws.com/backend_product:latest
+  repository: 907260787494.dkr.ecr.us-east-1.amazonaws.com/backend_product
   tag: latest
   pullPolicy: Always
 
