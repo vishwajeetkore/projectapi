@@ -33,7 +33,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   paths:
-    - path: /
+    - path: /api
       pathType: Prefix
 
 hpa:
