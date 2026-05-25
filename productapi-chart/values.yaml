@@ -29,7 +29,7 @@ labels:
 # ✅ ADD THIS BLOCK
 ingress:
   enabled: true
-  className: backend-nginx
+  className: ngnix
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   paths:
