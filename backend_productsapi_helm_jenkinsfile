@@ -53,7 +53,7 @@ pipeline {
         }
 
         stage('Deploy') {
-    steps {
+            steps {
         sh '''
         helm uninstall $HELM_CHART || true
 
